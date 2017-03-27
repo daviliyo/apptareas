@@ -10,6 +10,10 @@ router.get('/tareas', function(req, res, next) {
   res.render('tasks', { title: 'Tareas' });
 });
 
+router.get('/tareas/new', function(req, res, next) {
+  res.render('newTask', { title: 'Añadir tarea' });
+});
+
 router.get('/usuarios', function(req, res, next) {
     res.render('users', { title: 'Usuarios' });
 });

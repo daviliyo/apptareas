@@ -2,4 +2,13 @@ extends layout
 
 block content
     h1= title
-    p Welcome to #{title}
+    p Página #{title}
+    #index.row
+        .panel.panel-default
+            .panel-heading  Añadir tareas
+            .panel-body
+                | Desde aquí podrás añadir mas tareas dando click en añadir.
+                br
+                |
+                button.btn.btn-default(type='submit', onclick="window.location='/tareas/new'") Añadir
+    script(rel='javascript', src='/javascripts/tasks.js')
