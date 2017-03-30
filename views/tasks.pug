@@ -11,4 +11,25 @@ block content
                 br
                 |
                 button.btn.btn-default(type='submit', onclick="window.location='/tareas/new'") Añadir
-    script(rel='javascript', src='/javascripts/tasks.js')
+                |
+                br
+        each tarea, i in tareas
+            .col-md-4
+                .panel.panel-default
+                    .panel-heading  #{tarea.nom}
+                    .panel-body
+                        .progress
+                            .progress-bar(role='progressbar', aria-valuenow='tarea.realització', aria-valuemin='0', aria-valuemax='100', style='width:'+ tarea.realització+ '%')
+                                span.sr-only tarea.realització% Complete
+                                |  #{tarea.realització} %
+                        |
+                        .list-inline
+                            each label in tarea.etiquetes
+                                li
+                                    span.label.label-default #{label}
+                        |
+                        form(action='/update', method='post')
+                            .form-group
+                                input(type='hidden', name='actualitzar', value=+i)
+                            .form-group
+                                button.btn.btn-default(type='submit') Update

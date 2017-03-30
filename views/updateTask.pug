@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    h1= title
+    p Página #{title}
+    .row
+        .col-md-4
+        .panel.panel-default
+            .panel-heading  Actualizar Tarea
+            .panel-body
+                form(action='/updated', method='post')
+                    .form-group
+                        | Nombre de la Tarea
+                        br
+                        |
+                        input(type='text', name='nom', value=''+nom+'')
+                        br
+                    .form-group
+                        |  Etiquetas (separadas por coma)
+                        br
+                        |
+                        input(type='text', name='etiquetes', value=''+etiquetes+'')
+                        br
+                    .form-group
+                        |  % Realizaci&oacute;n
+                        br
+                        |
+                        input(type='number', min='0', max='100', name='realització', value=+realització)
+                        br
+                    .form-group
+                        |
+                        input(type='hidden', name='id', value=+ID)
+                        br
+                    .form-group
+                        |
+                        input.btn.btn-default(type='submit', value='Actualizar')
